@@ -39,10 +39,22 @@
     </form> -->
 </div>
 
-<form action="uploadImage" method="post" enctype="multipart/form-data">
-    <input type="file" name="fileUpload" class="fileinput" id="file">
-    <input type="submit" value="Upload!">
+<form id="imageform" action="uploadImage" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileUpload" class="fileinput" id="file" accept=".png,.jpg,.jpeg">
+    <!-- <input type="submit" value="Upload!"> -->
 </form>
+
+<script>
+    var image = document.getElementById("file");
+    var form = document.getElementById("imageform");
+    image.addEventListener("change", function(e) {
+        if(image.value !== ""){
+            //alert("Selected");
+            form.submit();
+            //async file upload
+        }
+    });
+</script>
 
 <!-- <script>
     function EditText() {
