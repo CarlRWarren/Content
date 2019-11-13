@@ -39,6 +39,11 @@
     </form> -->
 </div>
 
+<form action="uploadImage" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileUpload" class="fileinput" id="file">
+    <input type="submit" value="Upload!">
+</form>
+
 <!-- <script>
     function EditText() {
         var edit = document.getElementById("edit");
