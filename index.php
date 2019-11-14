@@ -5,8 +5,6 @@
 
         include 'header.php'; 
     ?>
-
-
 <!-- Log In Check -->
     <?php
         if(isset($_SESSION['user'])){
@@ -63,7 +61,6 @@
         <input type="file" name="fileUpload" class="fileinput" id="file" accept=".png,.jpg,.jpeg">
         <!-- <input type="submit" value="Upload!"> -->
     </form>
-
 <!-- Script testing file upload automatically on selection -->
     <script>
         var image = document.getElementById("file");
@@ -76,7 +73,6 @@
             }
         });
     </script>
-
 <!-- Potential script for editing text in-browser -->
     <!-- <script>
         function EditText() {
@@ -88,5 +84,4 @@
             console.log(textbox);
         }
     </script> -->
-
 <?php include 'footer.php'; ?>
