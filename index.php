@@ -1,12 +1,14 @@
-<?php 
+<!-- Start Session -->
+    <?php 
         session_start();
         $_SESSION['currentPage'] = $_SERVER['REQUEST_URI'];
 
         include 'header.php'; 
     ?>
-    <h1>Home</h1>
-<?php
-    //LOGGED IN?
+
+
+<!-- Log In Check -->
+    <?php
         if(isset($_SESSION['user'])){
             echo 'Hello '.$_SESSION['user'];
             echo '<a href="/Content/logout">logout</a>';
@@ -14,9 +16,9 @@
         else{
             echo '<a href="/Content/login">login</a>';
         }
-
-
-    //CREATE PAGE
+    ?>
+<!-- Create Page -->
+    <?php
         if(array_key_exists('CreatePage', $_POST)){
             $fileName = "New Page";
             $file = fopen($fileName.".php", "w") or die("Unable to open file!");
@@ -31,8 +33,10 @@
             header("Location: ".$fileName.".php");
         }
     ?>
-<a href="/Content/about">About</a> <br />
-<div class="content_container">
+<!-- Page Content -->
+    <h1>Home</h1>
+    <a href="/Content/about">About</a> <br />
+    <div class="content_container">
     <!-- Test code snippets for in-browser editing -->
 
         <!-- <div class="tooltip_test">Hey there
@@ -55,10 +59,10 @@
     </div>
 
 <!-- Form for image upload -->
-<form id="imageform" action="uploadImage" method="post" enctype="multipart/form-data">
-    <input type="file" name="fileUpload" class="fileinput" id="file" accept=".png,.jpg,.jpeg">
-    <!-- <input type="submit" value="Upload!"> -->
-</form>
+    <form id="imageform" action="uploadImage" method="post" enctype="multipart/form-data">
+        <input type="file" name="fileUpload" class="fileinput" id="file" accept=".png,.jpg,.jpeg">
+        <!-- <input type="submit" value="Upload!"> -->
+    </form>
 
 <!-- Script testing file upload automatically on selection -->
     <script>
