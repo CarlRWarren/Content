@@ -6,7 +6,4 @@
     move_uploaded_file($_FILES["fileUpload"]["tmp_name"], $imagepath);
     echo "<img src=".$imagepath.">";
 
-
-
-
 ?>
