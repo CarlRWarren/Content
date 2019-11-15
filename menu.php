@@ -1,3 +1,6 @@
+<!-- dbconfig.php -->
+<!-- Query database for main pages (where parent_id = null) -->
+<!-- Query database for sub pages (where parent_id = ID) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="navbar">
     <div class="subnav">

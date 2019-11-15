@@ -15,22 +15,7 @@
             echo '<a href="/Content/login">login</a>';
         }
     ?>
-<!-- Create Page -->
-    <?php
-        if(array_key_exists('CreatePage', $_POST)){
-            $fileName = "New Page";
-            $file = fopen($fileName.".php", "w") or die("Unable to open file!");
-            // Remember to add all necessary elements for a default page(i.e: Navbar / styling)
-            $txt = "<?php include 'header.php'; ?> 
-                    <h1>".$fileName."</h1>
-                    <div class='content'></div>
-                    <?php include 'footer.php' ?>";
-            fwrite($file, $txt);
-            fclose($file);
-        
-            header("Location: ".$fileName.".php");
-        }
-    ?>
+
 <!-- Page Content -->
     <h1>Home</h1>
     <a href="/Content/about">About</a> <br />
@@ -51,7 +36,7 @@
         </form> -->
     
     <!-- Create Page Form -->
-        <form method="post">
+        <form method="post" action="add_page">
             <input type="submit" value="Create Page" name="CreatePage">
         </form>
     </div>
