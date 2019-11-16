@@ -17,56 +17,39 @@
     ?>
 
 <!-- Page Content -->
-    <h1>Home</h1>
-    <a href="/Content/about">About</a> <br />
-    <div class="content_container">
-    <!-- Test code snippets for in-browser editing -->
+    <?php 
+    include 'dbconfig.php';
 
-        <!-- <div class="tooltip_test">Hey there
-            <span class="tooltip">Testing</span>
-        </div> -->
+    $query = "Select * from pages Where PAGE_ID = 2";
 
-        <!-- testing to edit content -->
-        <div contenteditable="true" class="edit_test" id="edit">
-            This is some text.
-        </div>
-        <!-- <button onclick="EditText()">Edit</button> -->
-        <!-- <form action="" method="post">
-            <input type="submit" value="Edit">
-        </form> -->
+    $result = $mysqli->query($query);
+    $num_results = $result->num_rows;
     
-    <!-- Create Page Form -->
-        <form method="post" action="add_page">
-            <input type="submit" value="Create Page" name="CreatePage">
-        </form>
-    </div>
-
-<!-- Form for image upload -->
-    <form id="imageform" action="uploadImage" method="post" enctype="multipart/form-data">
-        <input type="file" name="fileUpload" class="fileinput" id="file" accept=".png,.jpg,.jpeg">
-        <!-- <input type="submit" value="Upload!"> -->
+    if($num_results > 0){
+        $row = $result->fetch_assoc();
+        extract($row);
+        
+        echo "<h1 class=Header id=Header contenteditable=true>".$Header."</h1>";
+        echo $Content;
+    }
+    ?>
+    <form id="form" action="database_test.php" method="post">
+        <input id="HeaderInput" type="hidden" name="header">
+        <input id="ContentInput" type="hidden" name="content">
+        <input type="hidden" name="id" value="2">
+        <input type="submit" value="Test">
     </form>
-<!-- Script testing file upload automatically on selection -->
+    <button onclick="Save()">Save Changes</button>
     <script>
-        var image = document.getElementById("file");
-        var form = document.getElementById("imageform");
-        image.addEventListener("change", function(e) {
-            if(image.value !== ""){
-                //alert("Selected");
-                form.submit();
-                //async file upload
-            }
-        });
-    </script>
-<!-- Potential script for editing text in-browser -->
-    <!-- <script>
-        function EditText() {
-            var edit = document.getElementById("edit");
-            var textbox = document.createElement('input');
-            textbox.setAttribute("type", "text");
-            textbox.value = edit.innerHTML;
-            edit.parentNode.replaceChild(textbox, edit);
-            console.log(textbox);
+        function Save() {
+            var header = document.getElementById("Header");
+            var hinput = document.getElementById("HeaderInput");
+            var cinput = document.getElementById("ContentInput")
+            var content = document.getElementById("content")
+
+            hinput.setAttribute("value", header.innerHTML);
+            cinput.setAttribute("value", content.innerHTML);
+            document.getElementById("form").submit();
         }
-    </script> -->
+    </script>
 <?php include 'footer.php'; ?>
