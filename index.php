@@ -15,9 +15,8 @@
             echo '<a href="/Content/login">login</a>';
         }
     ?>
-
 <!-- Page Content -->
-    <?php 
+    <?php
     include 'dbconfig.php';
 
     $query = "Select * from pages Where PAGE_ID = 2";
@@ -33,23 +32,32 @@
         echo $Content;
     }
     ?>
-    <form id="form" action="database_test.php" method="post">
+    <form id="form" action="" method="post">
         <input id="HeaderInput" type="hidden" name="header">
         <input id="ContentInput" type="hidden" name="content">
-        <input type="hidden" name="id" value="2">
-        <input type="submit" value="Test">
+        <input type="hidden" name="id" value="<?php echo $PAGE_ID; ?>">
     </form>
     <button onclick="Save()">Save Changes</button>
+
     <script>
         function Save() {
-            var header = document.getElementById("Header");
             var hinput = document.getElementById("HeaderInput");
             var cinput = document.getElementById("ContentInput")
+            var header = document.getElementById("Header");
             var content = document.getElementById("content")
 
             hinput.setAttribute("value", header.innerHTML);
             cinput.setAttribute("value", content.innerHTML);
-            document.getElementById("form").submit();
+
+            var xhr;
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();
+            }
+
+            var data = "Header=" + header.innerHTML;
+            xhr.open("POST", "update_page.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send(data);
         }
     </script>
 <?php include 'footer.php'; ?>
