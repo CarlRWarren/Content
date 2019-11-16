@@ -2,11 +2,12 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         include 'dbconfig.php';
         $query = "update pages set ";
-        if(isset($_POST['Header'])) {
-            $query .= "Header='".$mysqli->real_escape_string($_POST['Header'])."',";
+        
+        if(isset($_POST['Header'])){
+            $query .= "Header='".$mysqli->real_escape_string($_POST['Header'])."'";
         }
-        if(isset($_POST['Content'])) {
-            $query .= "Content='".$_POST['Content']."'"; //$query .= "Content='".$mysqli->real_escape_string($_POST['Content'])."'";
+        if(isset($_POST['Content'])){
+            $query .= "Content='".$mysqli->real_escape_string($_POST['Content'])."'";
         }
         // if(isset($_POST['image'])){
         //     $query .= "ImageName='".$mysqli->real_escape_string($_POST['image'])."'";

@@ -29,7 +29,7 @@
         extract($row);
         
         echo "<h1 class=Header id=Header contenteditable=true>".$Header."</h1>";
-        echo $Content;
+        echo "<div id='Content' class='content_container'>".$Content."</div>";
     }
     ?>
     <form id="form" action="" method="post">
@@ -44,11 +44,10 @@
             var hinput = document.getElementById("HeaderInput");
             var cinput = document.getElementById("ContentInput")
             var header = document.getElementById("Header");
-            var content = document.getElementById("content")
+            var content = document.getElementById("Content");
 
             hinput.setAttribute("value", header.innerHTML);
             cinput.setAttribute("value", content.innerHTML);
-
             var xhr;
             if(window.XMLHttpRequest){
                 xhr = new XMLHttpRequest();
