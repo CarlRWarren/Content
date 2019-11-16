@@ -54,7 +54,7 @@
                 xhr = new XMLHttpRequest();
             }
 
-            var data = "Header=" + header.innerHTML;
+            var data = "Header=" + header.innerHTML + "&Content=" + content.innerHTML;
             xhr.open("POST", "update_page.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.send(data);
