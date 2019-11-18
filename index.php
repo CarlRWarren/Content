@@ -15,73 +15,48 @@
             echo '<a href="/Content/login">login</a>';
         }
     ?>
-<!-- Create Page -->
-    <?php
-        if(array_key_exists('CreatePage', $_POST)){
-            $fileName = "New Page";
-            $file = fopen($fileName.".php", "w") or die("Unable to open file!");
-            // Remember to add all necessary elements for a default page(i.e: Navbar / styling)
-            $txt = "<?php include 'header.php'; ?> 
-                    <h1>".$fileName."</h1>
-                    <div class='content'></div>
-                    <?php include 'footer.php' ?>";
-            fwrite($file, $txt);
-            fclose($file);
-        
-            header("Location: ".$fileName.".php");
-        }
-    ?>
 <!-- Page Content -->
-    <h1>Home</h1>
-    <a href="/Content/about">About</a> <br />
-    <div class="content_container">
-    <!-- Test code snippets for in-browser editing -->
+    <?php
+    include 'dbconfig.php';
 
-        <!-- <div class="tooltip_test">Hey there
-            <span class="tooltip">Testing</span>
-        </div> -->
+    $query = "Select * from pages Where PAGE_ID = 2";
 
-        <!-- testing to edit content -->
-        <div contenteditable="true" class="edit_test" id="edit">
-            This is some text.
-        </div>
-        <!-- <button onclick="EditText()">Edit</button> -->
-        <!-- <form action="" method="post">
-            <input type="submit" value="Edit">
-        </form> -->
+    $result = $mysqli->query($query);
+    $num_results = $result->num_rows;
     
-    <!-- Create Page Form -->
-        <form method="post">
-            <input type="submit" value="Create Page" name="CreatePage">
-        </form>
-    </div>
-
-<!-- Form for image upload -->
-    <form id="imageform" action="uploadImage" method="post" enctype="multipart/form-data">
-        <input type="file" name="fileUpload" class="fileinput" id="file" accept=".png,.jpg,.jpeg">
-        <!-- <input type="submit" value="Upload!"> -->
+    if($num_results > 0){
+        $row = $result->fetch_assoc();
+        extract($row);
+        
+        echo "<h1 class=Header id=Header contenteditable=true>".$Header."</h1>";
+        echo "<div id='Content' class='content_container'>".$Content."</div>";
+    }
+    ?>
+    <form id="form" action="" method="post">
+        <input id="HeaderInput" type="hidden" name="header">
+        <input id="ContentInput" type="hidden" name="content">
+        <input type="hidden" name="id" value="<?php echo $PAGE_ID; ?>">
     </form>
-<!-- Script testing file upload automatically on selection -->
+    <button onclick="Save()">Save Changes</button>
+
     <script>
-        var image = document.getElementById("file");
-        var form = document.getElementById("imageform");
-        image.addEventListener("change", function(e) {
-            if(image.value !== ""){
-                //alert("Selected");
-                form.submit();
-                //async file upload
+        function Save() {
+            var hinput = document.getElementById("HeaderInput");
+            var cinput = document.getElementById("ContentInput")
+            var header = document.getElementById("Header");
+            var content = document.getElementById("Content");
+
+            hinput.setAttribute("value", header.innerHTML);
+            cinput.setAttribute("value", content.innerHTML);
+            var xhr;
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();
             }
-        });
-    </script>
-<!-- Potential script for editing text in-browser -->
-    <!-- <script>
-        function EditText() {
-            var edit = document.getElementById("edit");
-            var textbox = document.createElement('input');
-            textbox.setAttribute("type", "text");
-            textbox.value = edit.innerHTML;
-            edit.parentNode.replaceChild(textbox, edit);
-            console.log(textbox);
+
+            var data = "Header=" + header.innerHTML + "&Content=" + content.innerHTML;
+            xhr.open("POST", "update_page.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send(data);
         }
-    </script> -->
+    </script>
 <?php include 'footer.php'; ?>
