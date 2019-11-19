@@ -8,8 +8,7 @@
         <div class="subnav-content">
             <?php 
                 session_start();
-
-                $_SESSION['currentPage'] = $_SERVER['REQUEST_URI'];
+                
                 if (isset($_SESSION['user'])) 
                 {
                     echo '<a href="/Content/add_page">Add sub-category</a>';
