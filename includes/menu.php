@@ -7,13 +7,11 @@
 <div class="navbar">
 
 <?php
-    
-    include '../includes/dbconfig.php';
-    
+include '../includes/dbconfig.php';
     $query = "select * from pages where PARENT_ID IS NULL";
     $result = $mysqli->query($query);
     $num_results = $result->num_rows;
-    
+
     if($num_results > 0) {
         while( $row = $result->fetch_assoc() ) {
             extract($row);
@@ -23,7 +21,7 @@
                     $subquery = "select * from pages where PARENT_ID = ".$PAGE_ID;
                     $subresult = $mysqli->query($subquery);
                     $sub_results = $result->num_rows;
-                    
+
                     if($sub_results > 0){
                         while ($subrow = $subresult->fetch_assoc()) {
                             extract($subrow);
@@ -32,23 +30,24 @@
                     }
                     if(isset($_SESSION['admin'])) {
                         if($_SESSION['admin'] == true){
-                            echo '<a href="../add_page?subpage=true&id='.$PAGE_ID.'">Add sub-category</a>';
+                            echo "<a class='add-sub-btn' href='../add_page?subpage=true&id=".$PAGE_ID."'><i class='fas fa-plus-circle fa-lg'></i></a>";
                         }
                     }
                 echo "</div>";
-
             echo "</div>";
         }
-        echo "<div class='subnav'>";
-        if (isset($_SESSION['admin'])) 
-            {
+        echo "<div class='subnav no-color'>";
+            echo "<button class='subnavbtn no-color-either'>";
+            if (isset($_SESSION['admin'])){
                 if($_SESSION['admin'] == true){
-                    echo '<a href="../add_page">Add Category</a>';
+                    echo '<a class="no-color" href="../add_page"><i class="fas fa-plus-circle fa-lg"></i></a>';
                 }
             }
+            echo "</button>";
         echo "</div>";
     }
-    ?>
+?>
+
 </div>
 
 
