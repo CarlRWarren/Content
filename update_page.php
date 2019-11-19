@@ -27,7 +27,7 @@
         //     $query .= "ImageName='".$mysqli->real_escape_string($_POST['image'])."'";
         // }
         
-        $query .= " WHERE PAGE_ID=2"; //$mysqli->real_escape_string($_REQUEST['2'])
+        $query .= " WHERE PAGE_ID=".$PAGE_ID; //$mysqli->real_escape_string($_REQUEST['2'])
         
         if(! $mysqli->query($query) ) {
             echo "Database Error: Unable to update record.";

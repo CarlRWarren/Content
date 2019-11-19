@@ -17,6 +17,7 @@
     ?>
 <!-- Page Content -->
     <?php
+    include 'header.php';
     include 'dbconfig.php';
 
     $query = "Select * from pages Where PAGE_ID = 1";
@@ -30,12 +31,7 @@
         echo "<div id='Content' class='content_container'>".$Content."</div>";
     }
     ?>
-    <form id="form" action="" method="post">
-        <input id="HeaderInput" type="hidden" name="header">
-        <input id="ContentInput" type="hidden" name="content">
-        <input type="hidden" name="id" value="<?php echo $PAGE_ID; ?>">
-    </form>
-    <button onclick="Save()">Save Changes</button>
+    <button onclick="Save(<?php echo $PAGE_ID?>)">Save Changes</button>
 
     <script src="save_changes.js"></script>
     <script src="file_upload.js"></script>
