@@ -24,7 +24,7 @@
             }
         }
         
-        $query .= " WHERE PAGE_ID=".$PAGE_ID; //$mysqli->real_escape_string($_REQUEST['2'])
+        $query .= " WHERE PAGE_ID=".$_POST['PageID'];
         
         if(! $mysqli->query($query) ) {
             echo "Database Error: Unable to update record.";

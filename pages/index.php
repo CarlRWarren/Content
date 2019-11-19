@@ -1,8 +1,4 @@
-<!-- Start Session -->
-    <?php 
-        session_start();
-        $_SESSION['currentPage'] = $_SERVER['REQUEST_URI'];
-    ?>
+
 <!-- Log In Check -->
     <?php
         // if(isset($_SESSION['user'])){

@@ -1,4 +1,5 @@
 function Save(PageID) {
+    console.log(PageID);
         var header = document.getElementById("Header");
         var content = document.getElementById("Content");
 
@@ -7,7 +8,7 @@ function Save(PageID) {
             xhr = new XMLHttpRequest();
             
             var data = "Header=" + header.innerHTML + "&Content=" + content.innerHTML + "&PageID=" + PageID;
-            xhr.open("POST", "update_page.php", true);
+            xhr.open("POST", "../update_page.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.send(data);
             

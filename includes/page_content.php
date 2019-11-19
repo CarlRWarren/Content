@@ -3,8 +3,7 @@
     include '../includes/menu.php';
 
     include '../includes/dbconfig.php';
-
-    $query = "Select * from pages Where PAGE_ID = 1";
+    $query = "Select * from pages Where File_Name = '".basename($_SERVER['PHP_SELF'])."'"; //place .php after depending on how stored in database
 
     $result = $mysqli->query($query);
     if($result != null) {
