@@ -1,3 +1,3 @@
-<?php include 'header.php'; ?>
-<h1>Contact</h1>
-<?php include 'footer.php'; ?>
+<!-- Page Content -->
+<?php include '../includes/page_content.php' ?>
+<?php include '../includes/footer.php'; ?>
