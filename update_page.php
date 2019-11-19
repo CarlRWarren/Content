@@ -23,6 +23,16 @@
                 $query .= ",Content='".$mysqli->real_escape_string($_POST['Content'])."'";
             }
         }
+
+        if(isset($_POST['Image']) && $_POST['Image'] != "" && $_POST['Image'] != NULL){
+            if($shouldSet) {
+                $query .= "Set Image_Name='".$mysqli->real_escape_string($_POST['Image'])."'";
+                $shouldSet = false;
+            }
+            else{
+                $query .= ",Image_Name='".$mysqli->real_escape_string($_POST['Image'])."'";
+            }
+        }
         
         $query .= " WHERE PAGE_ID=".$_POST['PageID'];
         

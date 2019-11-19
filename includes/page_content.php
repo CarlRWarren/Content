@@ -10,8 +10,24 @@
         $row = $result->fetch_assoc();
         extract($row);
         
-        echo "<h1 class=Header id=Header contenteditable=true>".$Header."</h1>";
-        echo "<div id='Content' class='content_container'>".$Content."</div>";
+        if($_SESSION['admin'] == true){
+            echo "<h1 class=Header id=Header contenteditable=true>".$Header."</h1>";
+            if($PAGE_ID != 1){
+                echo "<form action='../delete_page.php' method='post'><input type='hidden' name='pageID' value='".$PAGE_ID."'><input type='submit' value='Delete'></form>";
+            }
+            echo "Image Link: <input id='image' name='image_input' type='text'>";
+            if($Image_Name != NULL && $Image_Name != ""){
+                echo "<img id='image_ref' src=".$Image_Name.">";
+            }
+            echo "<div id='Content' class='content_container' contenteditable='true'>".$Content."</div>";
+        }
+        else{
+            echo "<h1 class=Header id=Header>".$Header."</h1>";
+            if($Image_Name != NULL && $Image_Name != ""){
+                echo "<img id='image_ref' src=".$Image_Name.">";
+            }
+            echo "<div id='Content' class='content_container'>".$Content."</div>";
+        }
     }
     ?>
 <button onclick="Save(<?php echo $PAGE_ID?>)">Save Changes</button>

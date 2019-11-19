@@ -1,14 +1,16 @@
 <?php
-    session_start();
+    include "../includes/header.php";
+    
 
     if(!empty($_POST))
     {
         if(isset($_POST["user"]) && isset($_POST["pass"]))
         {
-            if($_POST["user"] === "admin" && $_POST['pass'] === "pass")
+            if(SearchForUser($_POST["user"], $_POST["pass"]))
             {
                 $_SESSION['user'] = $_POST["user"];
-                header('Location: '.$_SESSION['currentPage']);
+                //need to know if admin
+                header('Location: index.php');
             }
             else
             {
@@ -16,9 +18,30 @@
             }
         }
     }
+
+    function SearchForUser($user, $pass) {
+        include "../includes/dbconfig.php";
+
+        $query = "Select * from users where Username='".$user."'&&Password='".$pass."'";
+        $result = $mysqli->query($query);
+        if($result != null){
+            $row = $result->fetch_assoc();
+            extract($row);
+            if($IsAdmin == 1){
+                $_SESSION['admin'] = true;
+            }
+            else{
+                $_SESSION['admin'] = false;
+            }
+
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 ?>
 
-<?php include "../includes/header.php"; ?>
 <h1>Login</h1>
 
 <form action='' method="post">

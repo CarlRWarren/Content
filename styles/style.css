@@ -133,3 +133,8 @@ body{
 .header_error{
   border: 1px solid red !important;
 }
+
+#image_ref{
+  max-height:300px; 
+  max-width:300px;
+}

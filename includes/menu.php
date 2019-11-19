@@ -30,17 +30,21 @@
                             echo "<a href='../pages/".$File_Name."'>".$Header."</a>";
                         }
                     }
-                    if(isset($_SESSION['user'])) {
-                            echo '<a href="../add_page?subpage=true&id="'.$PAGE_ID.'>Add sub-category</a>';
+                    if(isset($_SESSION['admin'])) {
+                        if($_SESSION['admin'] == true){
+                            echo '<a href="../add_page?subpage=true&id='.$PAGE_ID.'">Add sub-category</a>';
                         }
+                    }
                 echo "</div>";
 
             echo "</div>";
         }
         echo "<div class='subnav'>";
-        if (isset($_SESSION['user'])) 
+        if (isset($_SESSION['admin'])) 
             {
-                echo '<a href="../add_page">Add Category</a>';
+                if($_SESSION['admin'] == true){
+                    echo '<a href="../add_page">Add Category</a>';
+                }
             }
         echo "</div>";
     }

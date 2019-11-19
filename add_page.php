@@ -26,8 +26,8 @@
         //INSERT INTO `pages` (`PARENT_ID`, `Header`, `Content`, `File_Name`) VALUES (NULL, "New Page", "Dummy Text", "New_Page.php");
 
         $query = 'insert into `pages` (`PARENT_ID`, `Header`, `Content`, `File_Name`) VALUES (';
-        if(isset($_GET['subpage'])){
-            $query .= '"1",';//.$_GET['id'].'",';
+        if(isset($_GET['subpage'])) {
+            $query .= '"'.$_GET['id'].'",';
         }
         else{
             $query .= 'NULL,';
