@@ -41,6 +41,7 @@
         }else{
             exit();
         }
+
         $mysqli->close();
     }
     ?>
