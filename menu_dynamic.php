@@ -29,10 +29,11 @@
                     extract($subrow);
                     echo "<a href='/Content/".$File_Name.">".$Header."</a>";
                 }
-                if(isset($_SESSION['user'])){
+                
+            }
+            if(isset($_SESSION['user'])){
                     echo '<a href="/Content/add_page">Add sub-category</a>';
                 }
-            }
             echo "</div>";
             echo "</div>";
         }

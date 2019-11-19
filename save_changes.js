@@ -3,7 +3,7 @@ function Save(PageID) {
         var content = document.getElementById("Content");
 
         var xhr;
-        if(header.innerHTML != ""){
+        if(header.innerHTML != "") {
             xhr = new XMLHttpRequest();
             
             var data = "Header=" + header.innerHTML + "&Content=" + content.innerHTML + "&PageID=" + PageID;
