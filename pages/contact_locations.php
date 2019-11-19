@@ -1,5 +1,3 @@
-<?php include '../includes/header.php'; ?>
-<h1>Locations</h1>
-
-<a href="../pages/index">Home</a>
-<?php include 'footer.php'; ?>
+<!-- Page Content -->
+<?php include '../includes/page_content.php' ?>
+<?php include '../includes/footer.php'; ?>
