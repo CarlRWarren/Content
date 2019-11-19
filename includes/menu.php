@@ -30,7 +30,7 @@ include '../includes/dbconfig.php';
                     }
                     if(isset($_SESSION['admin'])) {
                         if($_SESSION['admin'] == true){
-                            echo "<a class='add-sub-btn' href='../add_page?subpage=true&id=".$PAGE_ID."'><i class='fas fa-plus-circle fa-lg'></i></a>";
+                            echo "<a class='add-sub-btn' href='../add_page.php?subpage=true&id=".$PAGE_ID."'><i class='fas fa-plus-circle fa-lg'></i></a>";
                         }
                     }
                 echo "</div>";
@@ -40,7 +40,7 @@ include '../includes/dbconfig.php';
             echo "<button class='subnavbtn no-color-either'>";
             if (isset($_SESSION['admin'])){
                 if($_SESSION['admin'] == true){
-                    echo '<a class="no-color" href="../add_page"><i class="fas fa-plus-circle fa-lg"></i></a>';
+                    echo '<a class="no-color" href="../add_page.php"><i class="fas fa-plus-circle fa-lg"></i></a>';
                 }
             }
             echo "</button>";
