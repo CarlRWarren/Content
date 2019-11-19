@@ -32,7 +32,7 @@
                     }
                     if(isset($_SESSION['admin'])) {
                         if($_SESSION['admin'] == true){
-                            echo '<a href="../add_page?subpage=true&id='.$PAGE_ID.'">Add sub-category</a>';
+                            echo '<a href="../add_page.php?subpage=true&id='.$PAGE_ID.'">Add sub-category</a>';
                         }
                     }
                 echo "</div>";
@@ -43,7 +43,7 @@
         if (isset($_SESSION['admin'])) 
             {
                 if($_SESSION['admin'] == true){
-                    echo '<a href="../add_page">Add Category</a>';
+                    echo '<a href="../add_page.php">Add Category</a>';
                 }
             }
         echo "</div>";
