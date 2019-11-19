@@ -11,31 +11,35 @@
     ?>
 <!-- Create Page -->
     <?php
-        $filename = "NewPage";
-        $file = fopen($filename.".php", "w") or die("Unable to open file!");
+        $filename = "New_Page";
+        $file = fopen("pages/".$filename.".php", "w") or die("Unable to open file!");
 
-    // add database call
-    
-    $txt = "<?php include 'header.php'; include 'menu_dynamic.php';?>
-            
-    <?php include 'footer.php' ?>";
+        include 'includes/dbconfig.php';
+
+        $txt = "<?php include '../includes/page_content.php';
+                      include '../includes/footer.php'; ?>";
     
         
         fwrite($file, $txt);
-        fclose($file);
-
-        header("Location: ".$filename.".php");
-
-            /*
-        if(array_key_exists('CreatePage', $_POST)) {
-            $fileName = "New Page";
-            $file = fopen($fileName.".php", "w") or die("Unable to open file!");
-            // Remember to add all necessary elements for a default page(i.e: Navbar / styling)
-            $txt = 
-            fwrite($file, $txt);
-            fclose($file);
         
-            header("Location: ".$fileName.".php");
+
+        //INSERT INTO `pages` (`PARENT_ID`, `Header`, `Content`, `File_Name`) VALUES (NULL, "New Page", "Dummy Text", "New_Page.php");
+
+        $query = 'insert into `pages` (`PARENT_ID`, `Header`, `Content`, `File_Name`) VALUES (';
+        if(isset($_GET['subpage'])) {
+            $query .= '"'.$_GET['id'].'",';
         }
-        */
+        else{
+            $query .= 'NULL,';
+        }
+        
+        $newFileName = "New Page";
+        $query .= '"'.$newFileName.'",';
+        $query .= '"Here is where your text goes!",';
+        $query .= '"'.$filename.'.php")';
+
+        $mysqli->query($query);
+
+        fclose($file);
+        header("Location: pages/".$filename.".php");
     ?>

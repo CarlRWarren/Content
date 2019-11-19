@@ -1,6 +1,6 @@
 <?php
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        include 'dbconfig.php';
+        include 'includes/dbconfig.php';
         $query = "update pages ";
 
         $shouldSet = true;
@@ -23,11 +23,18 @@
                 $query .= ",Content='".$mysqli->real_escape_string($_POST['Content'])."'";
             }
         }
-        // if(isset($_POST['image'])){
-        //     $query .= "ImageName='".$mysqli->real_escape_string($_POST['image'])."'";
-        // }
+
+        if(isset($_POST['Image']) && $_POST['Image'] != "" && $_POST['Image'] != NULL){
+            if($shouldSet) {
+                $query .= "Set Image_Name='".$mysqli->real_escape_string($_POST['Image'])."'";
+                $shouldSet = false;
+            }
+            else{
+                $query .= ",Image_Name='".$mysqli->real_escape_string($_POST['Image'])."'";
+            }
+        }
         
-        $query .= " WHERE PAGE_ID=".$PAGE_ID; //$mysqli->real_escape_string($_REQUEST['2'])
+        $query .= " WHERE PAGE_ID=".$_POST['PageID'];
         
         if(! $mysqli->query($query) ) {
             echo "Database Error: Unable to update record.";

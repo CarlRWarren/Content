@@ -1,13 +1,14 @@
 function Save(PageID) {
         var header = document.getElementById("Header");
         var content = document.getElementById("Content");
+        var image = document.getElementById("image");
 
         var xhr;
-        if(header.innerHTML != ""){
+        if(header.innerHTML != "") {
             xhr = new XMLHttpRequest();
             
-            var data = "Header=" + header.innerHTML + "&Content=" + content.innerHTML + "&PageID=" + PageID;
-            xhr.open("POST", "update_page.php", true);
+            var data = "Header=" + header.innerHTML + "&Content=" + content.innerHTML + "&Image=" + image.value +"&PageID=" + PageID;
+            xhr.open("POST", "../update_page.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.send(data);
             
@@ -19,5 +20,5 @@ function Save(PageID) {
             header.classList.add("header_error");
         }
 
-    
+        location.reload();
     }
