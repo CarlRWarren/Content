@@ -1,6 +1,6 @@
 <?php
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        include 'dbconfig.php';
+        include 'includes/dbconfig.php';
         $query = "update pages ";
 
         $shouldSet = true;
@@ -23,9 +23,6 @@
                 $query .= ",Content='".$mysqli->real_escape_string($_POST['Content'])."'";
             }
         }
-        // if(isset($_POST['image'])){
-        //     $query .= "ImageName='".$mysqli->real_escape_string($_POST['image'])."'";
-        // }
         
         $query .= " WHERE PAGE_ID=".$PAGE_ID; //$mysqli->real_escape_string($_REQUEST['2'])
         

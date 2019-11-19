@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Content Website</title>
-  <link href='styles/style.css', rel='stylesheet'>
+  <link href='../styles/style.css', rel='stylesheet'>
 </head>
 
 <body>

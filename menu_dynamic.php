@@ -7,9 +7,8 @@
 <div class="navbar">
 
 <?php
-    session_start();
     
-    include 'dbconfig.php';
+    include 'includes/dbconfig.php';
     
     $query = "select * from pages where PARENT_ID IS NULL";
     $result = $mysqli->query($query);
@@ -19,24 +18,30 @@
         while( $row = $result->fetch_assoc() ) {
             extract($row);
             echo "<div class='subnav'>";
-            echo "<button class='subnavbtn'><a href=/Content/".$File_Name.">".$Header."</a><i class='fa fa-caret-down'></i></button>";
-            echo "<div class='subnav-content'>";
-            $subquery = "select * from pages where PARENT_ID = ".$PAGE_ID;
-            $subresult = $mysqli->query($subquery);
-            $sub_results = $result->num_rows;
-            if($sub_results > 0){
-                while ($subrow = $subresult->fetch_assoc()){
-                    extract($subrow);
-                    echo "<a href='/Content/".$File_Name.">".$Header."</a>";
-                }
-                
-            }
-            if(isset($_SESSION['user'])){
-                    echo '<a href="/Content/add_page">Add sub-category</a>';
-                }
-            echo "</div>";
+                echo "<button class='subnavbtn'><a href=/Content/pages/".$File_Name.">".$Header."</a><i class='fa fa-caret-down'></i></button>";
+                echo "<div class='subnav-content'>";
+                    $subquery = "select * from pages where PARENT_ID = ".$PAGE_ID;
+                    $subresult = $mysqli->query($subquery);
+                    $sub_results = $result->num_rows;
+                    if($sub_results > 0){
+                        while ($subrow = $subresult->fetch_assoc()) {
+                            extract($subrow);
+                            echo "<a href='/Content/".$File_Name.">".$Header."</a>";
+                        }
+                    }
+                    if(isset($_SESSION['user'])) {
+                            echo '<a href="/Content/add_page?subpage=true&id="'.$PAGE_ID.'>Add sub-category</a>';
+                        }
+                echo "</div>";
+
             echo "</div>";
         }
+        echo "<div class='subnav'>";
+        if (isset($_SESSION['user'])) 
+            {
+                echo '<a href="/Content/add_page?subpage=false">Add Category</a>';
+            }
+        echo "</div>";
     }
     ?>
 </div>

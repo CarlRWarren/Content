@@ -18,7 +18,7 @@
     }
 ?>
 
-<?php include "header.php"; ?>
+<?php include "../includes/header.php"; ?>
 <h1>Login</h1>
 
 <form action='' method="post">
@@ -29,4 +29,4 @@
     <input type="submit" value="Submit">
 </form>
 
-<?php include "footer.php"; ?>
+<?php include "../includes/footer.php"; ?>

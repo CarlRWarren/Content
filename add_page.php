@@ -12,30 +12,28 @@
 <!-- Create Page -->
     <?php
         $filename = "NewPage";
-        $file = fopen($filename.".php", "w") or die("Unable to open file!");
+        $file = fopen("pages/".$filename.".php", "w") or die("Unable to open file!");
 
-    // add database call
-    
-    $txt = "<?php include 'header.php'; include 'menu_dynamic.php';?>
-            
-    <?php include 'footer.php' ?>";
+        include 'includes/dbconfig.php';
+
+        $txt = "<?php include 'includes/header.php'; 
+                      include 'menu_dynamic.php';?>"
+                      echo "<h1 class=Header id=Header contenteditable=true>".$filename."</h1>";
+                      "<?php include 'includes/footer.php' ?>";
     
         
         fwrite($file, $txt);
         fclose($file);
 
-        header("Location: ".$filename.".php");
-
-            /*
-        if(array_key_exists('CreatePage', $_POST)) {
-            $fileName = "New Page";
-            $file = fopen($fileName.".php", "w") or die("Unable to open file!");
-            // Remember to add all necessary elements for a default page(i.e: Navbar / styling)
-            $txt = 
-            fwrite($file, $txt);
-            fclose($file);
-        
-            header("Location: ".$fileName.".php");
+        $query = "insert into pages set ";
+        if($_GET['subpage'] == true){
+            $query .= "PARENT_ID=".$_GET['id'].",";
         }
-        */
+        else{
+            $query .= "PARENT_ID=NULL,";
+        }
+        $query .= "Header=".$filename.",";
+        $query .= "File_Name=".$filename.".php";
+
+        header("Location: pages/".$filename.".php");
     ?>
