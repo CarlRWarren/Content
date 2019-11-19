@@ -38,17 +38,37 @@ include '../includes/dbconfig.php';
         }
         echo "<div class='subnav no-color'>";
             echo "<button class='subnavbtn no-color-either'>";
-            if (isset($_SESSION['admin'])){
-                if($_SESSION['admin'] == true){
-                    echo '<a class="no-color" href="../add_page"><i class="fas fa-plus-circle fa-lg"></i></a>';
+                if (isset($_SESSION['admin'])){
+                    if($_SESSION['admin'] == true){
+                        echo '<a class="no-color" href="../add_page"><i class="fas fa-plus-circle fa-lg"></i></a>';
+                    }
                 }
-            }
             echo "</button>";
         echo "</div>";
+        
+        
+        echo "<div id='menu-btn' class='dropdown no-color'>";
+            echo "<button class='dropbtn no-color-either'>";
+                if (isset($_SESSION['admin'])){
+                    if($_SESSION['admin'] == true){
+                        echo '<a class="no-color" href="#"><i class="fas fa-bars fa-lg"></i></a>';
+                    }
+                }
+                
+            echo "</button>";
+            echo "<div class='dropdown-content'>";
+                echo "<a href='#'>Theme 1</a>";
+                echo "<a href='#'>Theme 2</a>";
+                echo "<a href='#'>Theme 3</a>";
+            echo "</div>";
+        echo "</div>";
     }
+
+    
 ?>
 
 </div>
+
 
 
 
