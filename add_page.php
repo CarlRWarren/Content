@@ -11,20 +11,20 @@
     ?>
 <!-- Create Page -->
     <?php
-        $filename = "New Page";
-        $file = fopen($fileName.".php", "w") or die("Unable to open file!");
+        $filename = "NewPage";
+        $file = fopen($filename.".php", "w") or die("Unable to open file!");
 
     // add database call
-    /*
-    $txt = "<?php include 'header.php'; include 'menu.php';?>
+    
+    $txt = "<?php include 'header.php'; include 'menu_dynamic.php';?>
             
     <?php include 'footer.php' ?>";
-    */
+    
         
         fwrite($file, $txt);
         fclose($file);
 
-        header("Location: ".$fileName.".php")
+        header("Location: ".$filename.".php");
 
             /*
         if(array_key_exists('CreatePage', $_POST)) {

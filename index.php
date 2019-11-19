@@ -19,12 +19,10 @@
     <?php
     include 'dbconfig.php';
 
-    $query = "Select * from pages Where PAGE_ID = 2";
+    $query = "Select * from pages Where PAGE_ID = 1";
 
     $result = $mysqli->query($query);
-    $num_results = $result->num_rows;
-    
-    if($num_results > 0){
+    if($result != null) {
         $row = $result->fetch_assoc();
         extract($row);
         
@@ -39,24 +37,6 @@
     </form>
     <button onclick="Save()">Save Changes</button>
 
-    <script>
-        function Save() {
-            var hinput = document.getElementById("HeaderInput");
-            var cinput = document.getElementById("ContentInput")
-            var header = document.getElementById("Header");
-            var content = document.getElementById("Content");
-
-            hinput.setAttribute("value", header.innerHTML);
-            cinput.setAttribute("value", content.innerHTML);
-            var xhr;
-            if(window.XMLHttpRequest){
-                xhr = new XMLHttpRequest();
-            }
-
-            var data = "Header=" + header.innerHTML + "&Content=" + content.innerHTML;
-            xhr.open("POST", "update_page.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.send(data);
-        }
-    </script>
+    <script src="save_changes.js"></script>
+    <script src="file_upload.js"></script>
 <?php include 'footer.php'; ?>
