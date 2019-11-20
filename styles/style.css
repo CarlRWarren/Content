@@ -6,7 +6,7 @@ body {
 .content_container{
     position: relative;
     display: inline-block;
-    width: 98%;
+    width: 99.5%;
     height: 100px;
 }
 .box {
@@ -24,10 +24,6 @@ body {
     visibility: none;
     border: 2px solid transparent;
     transition: border .5s;
-}
-
-[contenteditable="true"]:hover:not(:focus) {
-    border: 2px solid lightblue;
 }
 
 [contenteditable="true"]:focus {
@@ -51,6 +47,9 @@ body {
   align-self: center;
   margin-bottom: 20px;   
 }
+#image-area {
+  font-weight: bold;
+}
 
 
 
@@ -58,12 +57,10 @@ body {
 /* Navbar Styling */
 .navbar {
   overflow: hidden;
-  background-color: #333;
 }
 .navbar a {
   float: left;
   font-size: 16px;
-  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -76,7 +73,6 @@ body {
   font-size: 16px;
   border: none;
   outline: none;
-  color: white;
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
@@ -85,10 +81,6 @@ body {
 .subnavbtn > i {
   margin-top: 13%;
 }
-.navbar a:hover, .subnav:hover .subnavbtn {
-  background-color: #ddd;
-}
-
 .no-color:hover, .no-color-either, .add-sub-btn:hover {
   background-color: transparent !important;
 }
@@ -96,22 +88,12 @@ body {
   display: none;
   position: absolute;
   left: 0;
-  background-color: #ddd;
   width: 100%;
   z-index: 1;
 }
 .subnav-content a {
   float: left;
-  color: black;
   text-decoration: none;
-}
-.subnav-content a:hover {
-  background-color: #eee;
-  color: black;
-}
-.add-sub-btn:hover {
-  background-color: transparent !important;
-  color: black !important;
 }
 .subnav:hover .subnav-content {
   display: block;
@@ -120,17 +102,14 @@ body {
 
 
 /* Menu Dropdown Styling */
-
 .dropdown {
   float: right;
   overflow: hidden;
 }
-
 .dropdown .dropbtn {
   font-size: 16px;
   border: none;
   outline: none;
-  color: white;
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
@@ -139,22 +118,14 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-
 }
 .dropdown-content input {
   float: none;
-  color: black;
-  padding: 12px 16px;
   text-decoration: none;
   display: block;
   text-align: left;
-  font-size: 11px;
-}
-.dropdown-content input:hover {
-  background-color: #ddd;
 }
 .dropdown:hover .dropdown-content {
   display: block;

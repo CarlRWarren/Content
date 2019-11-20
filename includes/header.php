@@ -14,6 +14,7 @@
 <head>
   <title>Content Website</title>
   <script src="https://kit.fontawesome.com/a935b82506.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Bangers|Raleway&display=swap" rel="stylesheet">
   <link href='../styles/style.css', rel='stylesheet'>
   <?php
     echo "<link href='../styles/style".$_SESSION['theme'].".css', rel='stylesheet'>";
