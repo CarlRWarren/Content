@@ -11,3 +11,99 @@ white
 navy blue 
 #02182B 
 */
+
+body {
+  background-color: #fff;
+  color: #02182B;
+}
+body, .dropdown-content input {
+  font-family: 'Carter One', cursive;
+}
+#loginHeader {
+  margin-bottom: 30px;
+}
+#password, #username {
+  display: block;
+  margin: auto;
+  margin-bottom: 30px;
+}
+.Header, .subnav .subnavbtn, .dropdown-content input, #saveBtn, #deleteBtn {
+  letter-spacing: 1px;
+}
+#Content, #image, #image-area {
+  font-family: 'Carter One', cursive;
+}
+
+/* Text Edit Border  */
+[contenteditable="true"]:hover:not(:focus) {
+  border: 2px solid #DBDDDB;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #02182B;
+}
+.navbar a {
+  color: #fff;
+}
+.subnav .subnavbtn {
+  color: #fff;
+}
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: #D7263D;
+}
+.subnav-content {
+  background-color: #D7263D;
+}
+.subnav-content a {
+  color: #fff;
+}
+.subnav-content a:hover {
+  border-bottom: 3px solid #02182B;
+}
+.add-sub-btn:hover {
+  border-bottom: 0 !important;  
+}
+
+/* Menu Dropdown Styling */
+.dropdown .dropbtn {
+  color: #fff;
+}
+.dropdown-content {
+  background-color: #D7263D;
+}
+.dropdown-content input {
+  color: #fff;
+  font-size: 12px;
+  padding: 13px;
+  min-width: 82px;
+}
+.dropdown-content input:hover {
+  cursor: pointer;
+  background-color: #DBDDDB;
+  color: #D7263D;
+}
+.themeBtn {
+  background-color: #D7263D;
+  border: none;
+}
+
+
+/* Button Styling  */
+#saveBtn, #deleteBtn, #loginBtn {
+  font-family: 'Carter One', cursive;
+  margin-top: 15px;
+  padding: 10px 15px;
+  font-size: 1em;
+  min-width: 100px;
+  background-color: #DBDDDB;
+  color: #02182B;
+  border: 0;
+}
+#saveBtn:hover, #deleteBtn:hover, #loginBtn:hover {
+  cursor: pointer;
+}
+#loginBtn {
+  display: block;
+  margin: 20px auto;
+}
