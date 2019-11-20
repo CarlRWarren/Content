@@ -42,14 +42,14 @@
     }
 ?>
 
-<h1>Login</h1>
+<h1 id='loginHeader'>Login</h1>
 
 <form action='' method="post">
     Username:
     <input id="username" type="text" name="user">
     Password:
     <input id="password" type="password" name="pass">
-    <input type="submit" value="Submit">
+    <input id="loginBtn" type="submit" value="Submit">
 </form>
 
 <?php include "../includes/footer.php"; ?>

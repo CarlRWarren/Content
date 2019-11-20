@@ -3,13 +3,111 @@ pink
 #FFAABB
 
 teal 
-#A2F2E2
+#51D6BB
 
 white 
 #fff
+
+light grey
+#999999
 
 grey 
 #565656 
 */
 
+body {
+  background-color: #fff;
+  color: #565656;
+}
+body, .dropdown-content input {
+  font-family: 'Baloo', cursive;
+}
+#loginHeader {
+  margin-bottom: 30px;
+}
+#password, #username {
+  display: block;
+  margin: auto;
+  margin-bottom: 30px;
+}
+.Header, .subnav .subnavbtn, .dropdown-content input, #saveBtn, #deleteBtn {
+  letter-spacing: 1px;
+}
+#Content, #image, #image-area {
+  font-family: 'Baloo', cursive;
+}
+
+/* Text Edit Border  */
+[contenteditable="true"]:hover:not(:focus) {
+  border: 2px solid #51D6BB;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #FFAABB;
+}
+.navbar a {
+  color: #fff;
+}
+.subnav .subnavbtn {
+  color: #fff;
+}
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: #999999;
+}
+.subnav-content {
+  background-color: #999999;
+}
+.subnav-content a {
+  color: #fff;
+}
+.subnav-content a:hover {
+  border-bottom: 3px solid #FFAABB;
+}
+.add-sub-btn:hover {
+  border-bottom: 0 !important;  
+}
+
+/* Menu Dropdown Styling */
+.dropdown .dropbtn {
+  color: #fff;
+}
+.dropdown-content {
+  background-color: #999999;
+}
+.dropdown-content input {
+  color: #fff;
+  font-size: 12px;
+  padding: 15px;
+  min-width: 82px;
+}
+.dropdown-content input:hover {
+  cursor: pointer;
+  background-color: #EDEDED;
+  color: #999999;
+}
+.themeBtn {
+  background-color: #999999;
+  border: none;
+}
+
+
+/* Button Styling  */
+#saveBtn, #deleteBtn, #loginBtn {
+  font-family: 'Baloo', cursive;
+  margin-top: 15px;
+  padding: 10px 15px;
+  font-size: 1em;
+  min-width: 100px;
+  background-color: #51D6BB;
+  color: #fff;
+  border: 0;
+}
+#saveBtn:hover, #deleteBtn:hover, #loginBtn:hover {
+  cursor: pointer;
+}
+#loginBtn {
+  display: block;
+  margin: 20px auto;
+}
 
