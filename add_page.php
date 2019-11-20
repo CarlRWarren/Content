@@ -17,6 +17,12 @@
             if($count > 0){
                 $filename = substr_replace($filename, "", -1);
             }
+            else if($count >= 10){
+                $filename = substr_replace($filename, "", -2);
+            }
+            else if($count >= 100){
+                $filename = substr_replace($filename, "", -3);
+            }
             $count++;
             $filename = $filename.$count;
         }
