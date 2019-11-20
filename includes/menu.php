@@ -21,6 +21,7 @@ include '../includes/dbconfig.php';
                     $subquery = "select * from pages where PARENT_ID = ".$PAGE_ID;
                     $subresult = $mysqli->query($subquery);
                     $sub_results = $result->num_rows;
+                    $mainPage = $PAGE_ID;
 
                     if($sub_results > 0){
                         while ($subrow = $subresult->fetch_assoc()) {
@@ -30,7 +31,7 @@ include '../includes/dbconfig.php';
                     }
                     if(isset($_SESSION['admin'])) {
                         if($_SESSION['admin'] == true){
-                            echo "<a class='add-sub-btn' href='../add_page.php?subpage=true&id=".$PAGE_ID."'><i class='fas fa-plus-circle fa-lg'></i></a>";
+                            echo "<a class='add-sub-btn' href='../add_page.php?subpage=true&id=".$mainPage."'><i class='fas fa-plus-circle fa-lg'></i></a>";
                         }
                     }
                 echo "</div>";
