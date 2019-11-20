@@ -21,7 +21,7 @@
                 echo "</div>";
                 echo "<div id='Content' class='content_container' contenteditable='true'>".$Content."</div>";
                 if($PAGE_ID != 1){
-                    echo "<form action='../delete_page.php' method='post'><input type='hidden' name='pageID' value='".$PAGE_ID."'><input type='submit' value='Delete'></form>";
+                    echo "<form action='../delete_page.php' method='post'><input type='hidden' name='pageID' value='".$PAGE_ID."'><input id='deleteBtn' type='submit' value='Delete'></form>";
                 }
             }
         }
@@ -34,7 +34,7 @@
         }
     }
     ?>
-<button onclick="Save(<?php echo $PAGE_ID?>)">Save Changes</button>
+<button id="saveBtn" onclick="Save(<?php echo $PAGE_ID?>)">Save</button>
 
 <script src="../scripts/save_changes.js"></script>
 <script src="../scripts/file_upload.js"></script>
