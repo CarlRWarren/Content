@@ -56,9 +56,9 @@ include '../includes/dbconfig.php';
                 }
             echo "</button>";
             echo "<div class='dropdown-content'>";
-                echo "<a href='#'>Theme 1</a>";
-                echo "<a href='#'>Theme 2</a>";
-                echo "<a href='#'>Theme 3</a>";
+                echo "<form action='' method='post'><input type='hidden' name='style' value='1'></input><input type='submit' value='Theme 1'></input></form>";
+                echo "<form action='' method='post'><input type='hidden' name='style' value='2'></input><input type='submit' value='Theme 2'></input></form>";
+                echo "<form action='' method='post'><input type='hidden' name='style' value='3'></input><input type='submit' value='Theme 3'></input></form>";
             echo "</div>";
         echo "</div>";
     }
